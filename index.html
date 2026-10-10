@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nature Quest</title>
+  <meta name="description" content="Three small outdoor challenges, written by a tiny local AI model. Go touch grass." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <h1>Nature Quest</h1>
+      <p class="lead">Tell us how long you have. A small AI model running on your own computer will hand you three things to find outside.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="time-label">
+      <!-- Time selector: three radio buttons styled as a segmented control -->
+      <fieldset class="time-picker">
+        <legend id="time-label">How much time do you have?</legend>
+        <div class="time-options">
+          <input type="radio" name="minutes" id="t5" value="5" />
+          <label for="t5">5 min</label>
+
+          <input type="radio" name="minutes" id="t10" value="10" checked />
+          <label for="t10">10 min</label>
+
+          <input type="radio" name="minutes" id="t20" value="20" />
+          <label for="t20">20 min</label>
+        </div>
+      </fieldset>
+
+      <button id="generate" class="go" type="button">Generate Nature Quest</button>
+    </section>
+
+    <!-- Loading, error, and result areas. app.js shows/hides these. -->
+    <div id="loading" class="loading" role="status" aria-live="polite" hidden>
+      <span class="spinner" aria-hidden="true"></span>
+      <span>Gemma is thinking up your quest. The first run can take a little while.</span>
+    </div>
+
+    <div id="notice" class="notice" role="alert" hidden></div>
+
+    <section id="results" class="results" aria-live="polite" hidden>
+      <h2 id="results-title"></h2>
+      <p id="source-tag" class="source-tag"></p>
+      <ol id="cards" class="cards"></ol>
+
+      <aside class="phone-away">
+        <strong>Now put your phone away.</strong>
+        Slip it in a pocket or bag, step outside, and go find these. You can come back when you are done.
+      </aside>
+    </section>
+
+    <footer class="foot">
+      Challenges are written by <code>gemma3:270m</code> through <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>.
+      A small model can be quirky, so use your own good judgement outside.
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
